@@ -13,7 +13,6 @@ int cadenas(int num){
         if(rest%x==0){
             rest=x;
             suma+=rest;
-            cout << rest << endl;
         }
     }
 
