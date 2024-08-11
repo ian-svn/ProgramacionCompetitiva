@@ -1,4 +1,4 @@
-// desalambrando_ian-svn
+// desalambrando_ian-svn. lvl 2 y 3
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -6,7 +6,7 @@ using namespace std;
 int desalambrado(int N, vector<int>& a, vector<int>& b, vector<int>& c, int& m) {
     vector<int> eli;
 
-    for (int x = 1; x < N; x++) {
+    for (int x = 1; x <= N; x++) {
         vector<int> postesAdyas;
         
         for (int y = 0; y < m; y++) {
@@ -40,32 +40,45 @@ int desalambrado(int N, vector<int>& a, vector<int>& b, vector<int>& c, int& m) 
         }
     }
 
-    int aux=99999999,pos;
+    int cuadrado=0;
+    int acu=0;
 
-    for (int x = 0; x < m; x++) {
-        if(aux > c[x]){
-            aux = c[x];
-            pos = x;
+    for(int x = 1; x <= N; x++){
+        int cantidad=0;
+        for (int y = 0; y < m; y++) {
+            if (a[y] == x || b[y] == x) {
+                cantidad++;
+            }
+        }
+        if(cantidad==2){
+            cuadrado++;
         }
     }
-    eli.push_back(c[pos]);
-    a.erase(a.begin()+pos);
-    b.erase(b.begin()+pos);
-    c.erase(c.begin()+pos);
-    m=m-1;
 
-    int acu=0;
-    
-    acu+=aux;
+    acu = 0;
+
+    if(cuadrado==N){
+        int aux=99999999,pos;
+   
+        for (int x = 0; x < m; x++) {
+            if(aux > c[x]){
+                aux = c[x];
+                pos = x;
+            }
+        }
+
+        eli.push_back(c[pos]);
+        a.erase(a.begin()+pos);
+        b.erase(b.begin()+pos);
+        c.erase(c.begin()+pos);
+        m=m-1;
+    }
 
     for (int x = 0; x < eli.size(); x++) {
         acu+=eli[x];
     }
 
-    for(int x=0;x<m;x++){
-        cout << a[x] << " "<<b[x]<< " " << c[x]<<endl;
-    }
-        
+
     return acu;
 }
 
