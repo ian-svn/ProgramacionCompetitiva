@@ -35,14 +35,12 @@ int envido(int numero1, string palo1,int  numero2, string  palo2,int  numero3, s
         } else if(palo3==palo1){
             num1=numero1;
             num2=numero3;
-        } else {
-            return cartaMasAlta(numero1, numero2, numero3);
         }
 
         if((num1<10&&(num2<10))&&num1<=12&&num2<=12&&num1>=1&&num2>=1){
             return num1+num2+20;
         } else if(num1>=10&&num2>=10){
-            return 0;
+            return 20;
         } else if((num1>=10||(num2>=10))&&num1<=12&&num2<=12&&num1>=1&&num2>=1){
             int numMenor = (num1<10) ? numMenor=num1 : numMenor=num2;
             return 20 + numMenor;
@@ -62,23 +60,23 @@ int main(){
     cin >> numero3 >> palo3;
 
     if(!(numero1>=1&&numero1<=12&&numero1!=8&&numero1!=9)){
-        return 2;
+        return 1;
     }
     if(!(numero2>=1&&numero2<=12&&numero2!=8&&numero2!=9)){
-        return 4;
+        return 2;
     }
     if(!(numero3>=1&&numero3<=12&&numero3!=8&&numero3!=9)){
-        return 5;
+        return 3;
     }
     
     if(palo1!="oros"&&palo1!="copas"&&palo1!="espadas"&&palo1!="bastos"){
-        return 6;
+        return 4;
     }
     if(palo2!="oros"&&palo2!="copas"&&palo2!="espadas"&&palo2!="bastos"){
-        return 7;
+        return 5;
     }
     if(palo3!="oros"&&palo3!="copas"&&palo3!="espadas"&&palo3!="bastos"){
-        return 8;
+        return 6;
     }
     int res = envido(numero1, palo1, numero2, palo2, numero3, palo3);
 
