@@ -4,8 +4,8 @@
 using namespace std;
 
 int hallarx(string a, string b, string c){
-    int x;
     int count=0;
+    
     if(a.find('x')!=string::npos){
         count = 1;
     } else if(b.find('x')!=string::npos){
@@ -70,8 +70,6 @@ int hallarx(string a, string b, string c){
 }
 
 int main (){
-
-    system("cls");
 
     string a,b,c;
 
